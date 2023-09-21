@@ -29,7 +29,7 @@ export default function Chat({ params } : ChatProps){
         <main className="h-screen w-full flex flex-col bg-[#0b141a] relative">
             <div className="conversation absolute w-full h-full opacity-5 top-0 left-0"></div>
             <ChatHeader status={data[0]?.status} imagem={data[0]?.image!} nome={data[0]?.name}/>
-            <div className="flex-grow  px-[70px] py-6 gap-y-4 flex flex-col justify-end overflow-y-scroll">
+            <div className="flex-grow  px-[70px] py-6 gap-y-4 flex flex-col justify-end">
                 {
                     data[0] &&
                     data[0].messages.map((mes,i)=>(
