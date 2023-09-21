@@ -25,7 +25,7 @@ export default function CardMessage({user} : CardMessageProps){
 
     return(
         <div className={`hover:bg-[#2a39427d] ${ativo ? "bg-[#2a3942]" : ''} w-full group`}>
-            <CardActionArea href={`/${user.id}`} className="px-4 flex items-center justify-start gap-x-4">
+            <a  href={`/${user.id}`} className="px-4 items-center justify-start gap-x-4 flex">
                 <Avatar>
                     <AvatarImage src={user.image}/>
                     <AvatarFallback>
@@ -54,7 +54,7 @@ export default function CardMessage({user} : CardMessageProps){
                             <ChevronDown color="rgb(255 255 255 / 0.5)" className="group-hover:translate-x-0 group-hover:opacity-100 opacity-0 translate-x-5 transition-transform duration-100"/>
                         </div>
                 </div>
-            </CardActionArea>
+            </a>
         </div>
     )
 }
