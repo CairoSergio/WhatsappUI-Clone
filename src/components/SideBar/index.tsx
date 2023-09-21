@@ -12,35 +12,10 @@ import { shuffleArray } from "../../utils/shuffleArray";
 import { DoneAll } from '@mui/icons-material'
 import { useGithubAvatars } from "@/hooks/useGitHubAvatars";
 import CardMessage from "../CardMessage";
+import { useUsers } from "@/hooks/useUsers";
 
 export default function SideBar(){
-    const [data, setdata] = useState<User[]>([])
-
-    useEffect(()=>{
-
-        const multiplied = [
-            ...usersData,
-            ...usersData,
-        ]
-
-        if (multiplied.length > 0) {
-            fetchAvatars();
-        }
-
-        async function fetchAvatars() {
-            const { images, error } = await useGithubAvatars(multiplied.length);
-    
-            if(images){
-                const updatedData = multiplied.map((user, i) => ({
-                    ...user,
-                    image: images[i]?.avatar_url || ''
-                }));
-                setdata(updatedData);
-            }
-        }
-    
-    },[])
-
+    const data = useUsers()
 
     return(
         <main className="min-w-[30%] max-h-screen flex flex-col border-r border-r-border/20">

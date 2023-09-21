@@ -4,7 +4,7 @@ async function fetchGithubAvatars(amount: number) {
       const imagedata = await response.json();
       return imagedata;
     } catch (error) {
-      throw error; // Lançar o erro para ser tratado no chamador, se necessário.
+      throw error;
     }
   }
   
@@ -14,7 +14,7 @@ async function fetchGithubAvatars(amount: number) {
       return { images: imagesData.items };
     } catch (error: any) {
       return {
-        error: error.message, // Retorna uma mensagem de erro, se houver.
+        error: error.message, 
       };
     }
   }
