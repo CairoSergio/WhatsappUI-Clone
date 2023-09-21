@@ -1,4 +1,3 @@
-import Bar from "@/components/ui/bar";
 import Bar2 from "./ui/bar2";
 
 interface UserMessageProps {
