@@ -1,12 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Lock } from "@mui/icons-material";
 import { Typography } from "@mui/material";
+import Image from "next/image";
 
 export default function Home() {
 
   return (
     <main className="h-screen relative w-[70%] bg-primary flex flex-col items-center justify-center">
-        <img src="/img2.png" className="w-80"/>
+        <Image alt="whatsapp" src="/img2.png" className="w-80"/>
         <Typography sx={{color:'#fff', fontWeight:200}} className="mt-8" variant="h4">
           Baixar o whatsapp para windows
         </Typography>

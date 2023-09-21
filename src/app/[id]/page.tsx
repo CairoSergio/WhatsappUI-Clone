@@ -23,7 +23,7 @@ export default function Chat({ params } : ChatProps){
     useEffect(()=>{
         const response = usersData.filter((userId)=> userId.id == params.id);
         setData(response)
-    },[])
+    },[params.id])
 
 
     return(

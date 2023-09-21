@@ -21,7 +21,7 @@ export default function CardMessage({user} : CardMessageProps){
             return;
         }
         setAtivo(false)
-    },[pathname])
+    },[pathname, user.id])
 
     return(
         <div className={`hover:bg-[#2a39427d] ${ativo ? "bg-[#2a3942]" : ''} w-full group`}>
