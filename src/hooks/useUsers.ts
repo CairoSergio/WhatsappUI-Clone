@@ -1,23 +1,30 @@
 import { useEffect, useState } from "react";
-import { useFetchAvatars } from "@/hooks/useFetchAvatars";
+import { useGithubAvatars } from "@/hooks/useGitHubAvatars";
 import { usersData } from "@/data/users";
 import { User } from "@/interfaces/user";
 
 export function useUsers() {
   const [data, setData] = useState<User[]>([]);
-  const avatars = useFetchAvatars();
 
   useEffect(() => {
-    const multiplied = [...usersData, ...usersData];
+      const multiplied = [...usersData, ...usersData];
+      
+      async function FetchAvatars() {
+        const { images } = await useGithubAvatars(multiplied.length);
 
-    if (avatars.length > 0) {
-      const updatedData = multiplied.map((user, i) => ({
-        ...user,
-        image: avatars[i] || ""
-      }));
-      setData(updatedData);
+        if (images) {
+            const updatedData = multiplied.map((user, i) => ({
+            ...user,
+            image: images[i]?.avatar_url || ""
+            }));
+            setData(updatedData);
+        }
     }
-  }, [avatars]);
+
+    if (multiplied.length > 0) {
+      FetchAvatars();
+    }
+  }, []);
 
   return data;
 }
