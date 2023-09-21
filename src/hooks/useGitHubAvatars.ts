@@ -8,14 +8,14 @@ async function fetchGithubAvatars(amount: number) {
     }
   }
   
-  export async function useGithubAvatars(users: number) {
-    try {
-      const imagesData = await fetchGithubAvatars(users);
-      return { images: imagesData.items };
-    } catch (error: any) {
-      return {
-        error: error.message, 
-      };
-    }
+export async function useGithubAvatars(users: number) {
+  try {
+    const imagesData = await fetchGithubAvatars(users);
+    return { images: imagesData.items };
+  } catch (error: any) {
+    return {
+      error: error.message, 
+    };
   }
+}
   
