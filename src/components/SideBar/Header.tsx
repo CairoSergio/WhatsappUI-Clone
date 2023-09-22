@@ -6,8 +6,6 @@ import Status from "../ui/status";
 import MessagerIcon from "../ui/messager";
 
 export default function Header(){
-
-
     return(
         <header className="w-full p-3 bg-primary flex justify-between">
             <Avatar>
